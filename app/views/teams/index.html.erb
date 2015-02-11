@@ -1,0 +1,12 @@
+<% @teams.each do |team| %>
+  <h1><%= team.name %></h1>
+  <ul>
+    <% team.players.each do |player| %>
+      <li>
+        <%= link_to player.name, team_player_path(team, player) %> –
+        <%= link_to 'Delete', team_player_path(team, player), method: :delete,
+          data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
+      </li>
+    <% end %>
+  </ul>
+<% end %>
